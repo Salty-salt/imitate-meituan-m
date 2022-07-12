@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://cdn.staticfile.org/vue/3.2.36/vue.global.min.js"></script>
+<style>
+    .class1{
+        background: #444;
+        color:#eee;
+    }
+</style>
+</head>
+<body>
+<div id="hello-vue" class="demo">
+  <p>输入框的值：{{ message }}</p>
+  <span v-once>这个将不会改变: {{ message }}</span>
+  <input type="text" v-model="message">
+</div>
+<div id="example" class="demo">
+    <p>使用双大括号的文本插值:{{rawHtml}}</p>
+    <p>使用v-html指令：<span v-html="rawHtml"></span></p>
+</div>
+<div id="tbind">
+    <label for="r1">修改颜色</label><input type="checkbox" v-model="use" id="r1">
+    <br>
+    <div v-bind:class="{'class1':use}">
+        v-bind:class指令
+    </div>
+</div>
+<script>
+const HelloVueApp = {
+  data() {
+    return {
+      message: 'Hello Vuell!!'
+    }
+  }
+}
+const RenderHtmlApp={
+    data(){
+        return{
+            rawHtml:'<span style="color: red">这里会显示红色！</span>'
+        }
+    }
+}
+const vbind={
+    data(){
+        return{
+            use:false
+        }
+    }
+}
+Vue.createApp(HelloVueApp).mount('#hello-vue')
+Vue.createApp(RenderHtmlApp).mount('#example')
+Vue.createApp(vbind).mount('#tbind')
+</script>
+</body>
+</html>
