@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>模板语法</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+</head>
+
+<body>
+    <div id="root">
+        <h1>插值语法</h1>
+        <h3>你好，{{name}}</h3>
+        <hr />
+        <a :href="url">点我</a>
+    </div>
+</body>
+<script type="text/javascript">
+    Vue.config.productionTip = false
+    new Vue({
+        el: '#root',
+        data: {
+            name: "lucky",
+            url: 'http://www.baidu.com'
+        }
+    })
+</script>
+
+</html>
